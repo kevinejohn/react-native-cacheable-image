@@ -48,7 +48,7 @@ class CacheableImage extends React.Component {
       // means file does not exist
       // first make sure directory exists.. then begin download
       RNFS
-      .mkdir(dirPath, true)
+      .mkdir(dirPath)
       .then(() => {
         // Keep all files for cache
 
