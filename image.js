@@ -50,19 +50,21 @@ class CacheableImage extends React.Component {
       RNFS
       .mkdir(dirPath, true)
       .then(() => {
-        // before we change the cachedImagePath.. if the previous cachedImagePath was set.. remove it
-        if (this.state.cacheable && this.state.cachedImagePath) {
-          let delImagePath = this.state.cachedImagePath;
-          RNFS
-          .exists(delImagePath)
-          .then((res) => {
-            if (res) {
-              RNFS
-              .unlink(delImagePath)
-              .catch((err) => {});
-            }
-          });
-        }
+        // Keep all files for cache
+
+        // // before we change the cachedImagePath.. if the previous cachedImagePath was set.. remove it
+        // if (this.state.cacheable && this.state.cachedImagePath) {
+        //   let delImagePath = this.state.cachedImagePath;
+        //   RNFS
+        //   .exists(delImagePath)
+        //   .then((res) => {
+        //     if (res) {
+        //       RNFS
+        //       .unlink(delImagePath)
+        //       .catch((err) => {});
+        //     }
+        //   });
+        // }
 
         let downloadOptions = {
           fromUrl: imageUri,
